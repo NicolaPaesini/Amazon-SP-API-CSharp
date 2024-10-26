@@ -13,7 +13,7 @@ namespace FikaAmazonAPI.ConstructFeed.Messages
         public InventoryLookup? Lookup { get; set; }
         public int? Quantity { get; set; }
 
-        public DateTime? RestockDate { get; set; }
+        public string RestockDate { get; set; }
 
         public string FulfillmentLatency { get; set; }
 
@@ -31,7 +31,7 @@ namespace FikaAmazonAPI.ConstructFeed.Messages
         [XmlIgnore] 
         public bool QuantitySpecified { get { return Quantity.HasValue; } }
         [XmlIgnore] 
-        public bool RestockDateSpecified { get { return RestockDate.HasValue; } }
+        public bool RestockDateSpecified { get { return !string.IsNullOrEmpty(RestockDate); } }
         [XmlIgnore] 
         public bool SwitchFulfillmentToSpecified { get { return SwitchFulfillmentTo.HasValue; } }
 
