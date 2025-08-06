@@ -94,7 +94,7 @@ namespace FikaAmazonAPI.Services
                 {
                     AWSAuthenticationCredential = awsAuthenticationCredentials,
                     SessionToken = response1.Credentials.SessionToken,
-                    Expiration = response1.Credentials.Expiration
+                    Expiration = response1.Credentials.Expiration ?? DateTime.UtcNow.AddHours(1)
                 });
                 dataToken = amazonCredential.GetAWSAuthenticationTokenData();
             }
